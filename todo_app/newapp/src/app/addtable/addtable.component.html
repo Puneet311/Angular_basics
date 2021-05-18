@@ -1,0 +1,89 @@
+
+<div class="container" *ngIf="!showtable">
+    <form [formGroup]="registerForm" (ngSubmit)="adduser()">
+    <div class="form-group">
+        <label for="id1" class="form-label"><strong>First Name</strong></label>
+        <input type="text" class="form-control" placeholder="Enter your first name" formControlName="firstName">
+        <div *ngIf="registerForm.controls.firstName.invalid && registerForm.controls.firstName.touched" class="error">*This field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="id2" class="form-label"><strong>Last Name</strong></label>
+        <input type="text" class="form-control" placeholder="Enter your last name" formControlName="lastName">
+        <div *ngIf="registerForm.controls.lastName.invalid && registerForm.controls.lastName.touched" class="error">*This field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="id3" class="form-label"><strong>E-Mail</strong></label>
+        <input type="email" class="form-control" placeholder="Enter your email"  formControlName="email">
+        <div *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched" class="error">*This field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="id4" class="form-label"><strong>Contact</strong></label>
+        <input type="text" class="form-control" placeholder="Enter your contact 1234567890"  formControlName="contact">
+        <div *ngIf="registerForm.controls.contact.invalid && registerForm.controls.contact.touched" class="error">*This field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="id5" class="form-label"><strong>Date Of Birth</strong></label>
+        <input type="date" class="form-control" placeholder="Enter your DOB"  formControlName="DOB">
+        <div *ngIf="registerForm.controls.DOB.invalid && registerForm.controls.DOB.touched" class="error">*This field is required</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label"><strong>Gender:</strong></label>&nbsp;&nbsp;
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gender" id="id6" value="male" formControlName="gender">
+      <label class="form-check-label" for="id6"><strong>Male</strong></label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="gender" id="id7" value="female" formControlName="gender">
+      <label class="form-check-label" for="id7"><strong>Female</strong></label>
+      <div *ngIf="registerForm.controls.gender.invalid && registerForm.controls.gender.touched" class="error">*This field is required</div>
+    </div>
+  </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary form-control" [disabled]="registerForm.invalid">Add details</button>
+        <br><br>
+        <button class="btn btn-dark form-control" (click)="showTable()">Show details</button>
+        <br><br>
+        
+    </div>
+    </form>
+    <div class="container">{{this.usermessage}}</div>
+</div>
+
+<div class="container" *ngIf="showtable">
+    <h1 class="display-3 heading">Details of User</h1>
+    <div class="card col-md-12 col-sm-12">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of formData">
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.first_name}}</td>
+                <td>{{data.last_name}}</td>
+                <td>{{data.contact}}</td>
+                <td>{{data.gender}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.date_of_birth}}</td>
+                <td><button type="submit" (click)="deleteitem(data.id)" class="btn btn-dark">DELETE</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div>
+            {{deleteMessage}}
+          </div>
+    </div>
+    <br>
+    <button  class="btn btn-primary col-md-2 offset-md-2" (click)="showForm()">Add user</button>
+
+</div>
