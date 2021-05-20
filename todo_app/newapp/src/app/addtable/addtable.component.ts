@@ -36,9 +36,11 @@ export class AddtableComponent implements OnInit {
   showForm(){
     this.showtable=false;
     this.usermessage="";
+    
   }
 
   usermessage:any;
+  successmessage:boolean=false;
   adduser(){
     let body={"first_name":this.registerForm.controls.firstName.value,
                "last_name":this.registerForm.controls.lastName.value,
@@ -47,20 +49,24 @@ export class AddtableComponent implements OnInit {
                "email":this.registerForm.controls.email.value,
                "date_of_birth":this.registerForm.controls.DOB.value}
     this.dataservice.addUser(body).subscribe(
-      data=>{this.usermessage=data.meassage}
+      data=>{this.usermessage=data.meassage;
+      this.successmessage=true;
+      setTimeout(()=>{this.successmessage=false},3000);}
     )
   }
 
   deleteMessage:any
- 
+ deletetime=false;
   deleteitem(id:any){
     this.dataservice.deleteUser(id).subscribe(
       data=>{this.deleteMessage=data.message;
+        this.deletetime=true;
+        setTimeout(()=>{this.deletetime=false},3000);
       this.showTable();}
     );
 }
   
-
+  
 
 
 }

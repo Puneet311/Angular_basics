@@ -42,4 +42,9 @@ model.deleteUser=async (id)=>{
     }
 }
 
+// model.updateUser=async(id,param)=>{
+//  let {updateVar}=   
+//  let item=await pool.query('UPDATE person SET ')
+// }
+
 module.exports=model
