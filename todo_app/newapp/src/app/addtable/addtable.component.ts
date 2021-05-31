@@ -13,7 +13,7 @@ export class AddtableComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataservice.getData().subscribe(
-      data=>{this.formData=data;console.log(this.formData)}
+      data=>{this.formData=data;}
     )
   }
   registerForm = this.formBuilder.group({
@@ -51,7 +51,8 @@ export class AddtableComponent implements OnInit {
     this.dataservice.addUser(body).subscribe(
       data=>{this.usermessage=data.meassage;
       this.successmessage=true;
-      setTimeout(()=>{this.successmessage=false},3000);}
+      setTimeout(()=>{this.successmessage=false},3000);
+      this.registerForm.reset();}
     )
   }
 

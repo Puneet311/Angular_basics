@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <label for="select1" class="form-label">Select the Id to be updated:</label>
+        <select name="ids" id="select1"  class="form-control" [(ngModel)]="ids">select id
+       <option *ngFor="let data of id" value="{{data.id}}">{{data.id}}</option>
+    </select>
+    </div><br><br>
+    <div>
+        <label for="select2" class="form-label">SELECT THE OPTIONS TO BE UPDATED</label>
+        <select name="colum" id="select2" [(ngModel)]="name" class='form-control'>select options
+        <option value="first_name">first_name</option>
+        <option value="last_name">last_name</option>
+        <option value="email">email</option>
+        <option value="contact">contact</option>
+    </select>
+    </div><br><br>
+    <div>
+        <label for="" class="form-label"> Enter the value of {{name}} for id :{{ids}}</label>&nbsp;&nbsp;&nbsp;
+        <input type="text" class="form-control" placeholder="Enter the value for {{name}}" [(ngModel)]="inputvalue">
+    </div><br><br>
+    <button class="btn btn-dark col-md-3 offset-2" [routerLink]='["/"]'>Back to Home</button>
+    <button class="btn btn-success col-md-2 offset-2" (click)="updateinfo()">Update</button>
+</div><br><br>
+<div class="container">
+    <div class="alert alert-primary message" role="alert" *ngIf="updatemessage">
+        {{updatemessage}}
+      </div>
+
+</div>
+
+

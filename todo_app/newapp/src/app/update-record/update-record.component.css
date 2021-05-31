@@ -1,0 +1,21 @@
+div{
+    color: antiquewhite;
+    size: 40px;
+}
+
+label{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+.alert{
+    background-color: rgb(36, 193, 233);
+    color:rgb(0, 0, 0);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: x-large;
+    text-align: center;
+    text-transform: capitalize;
+}

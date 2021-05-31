@@ -11,6 +11,7 @@ export class TabledataService {
 
   url="http://localhost:3000/myapp/home"
   url1="http://localhost:3000/myapp/addUser"
+  url2="http://localhost:3000/myapp/modify/"
   url3="http://localhost:3000/myapp/delete/"
   getData():Observable<any>{
     return this.http.get<any>(this.url)
@@ -21,5 +22,9 @@ export class TabledataService {
 
   deleteUser(id:any):Observable<any>{
     return this.http.delete<any>(this.url3+id)
+  }
+
+  updateUser(id:any,body:any):Observable<any>{
+    return this.http.put<any>(this.url2+id,body)
   }
 }
