@@ -13,7 +13,6 @@ app.use(express.static(path.join(__dirname,'public/dist')));
 
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,"public/dist/index.html"));
-    console.log("we are here")
   
 })
 
